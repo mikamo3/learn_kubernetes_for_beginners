@@ -49,3 +49,9 @@ metadata:
   annotations:
     example.com/icon-url: "https://example.com/icon.png"
 ```
+
+とりあえずいかのこまんどで後片付けできる
+
+```
+kubectl delete deployments --all
+```

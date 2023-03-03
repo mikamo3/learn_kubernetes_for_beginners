@@ -1,0 +1,23 @@
+サービスディスカバリ: どのプロセスがどのアドレスでどのサービスのために待ち受けているかを見つける
+
+ServiceはクラスタIPを保持していて同じセレクタのつけられたPodniロードバランスする
+
+クラスタ内にDNSServiceがいる。
+
+kubectl edit でリソースを編集できる
+
+PodのIPアドレスにはクラスタ内からしかアクセスできない場合が大半
+
+NodePortでアクセス可能
+
+クラスタIPを使わずにServiceを使用したい場合、Endpointオブジェクトを使う
+
+kubectl get pods -o wide --selector app=alpaca 
+
+みたいにselectorで絞り込み
+
+クラスタIPはService内の各Endpointsにロードバランスする仮想IP
+
+この仕組みはクラスタ内の各ノードで動いているkube-proxyで実現している
+
+サービス作成時に特定のクラスタIPを手動で設定することも可能
